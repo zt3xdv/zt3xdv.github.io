@@ -1,0 +1,308 @@
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-bg: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+    --section-bg: #2a2a2a;
+    --skill-bg: #404040;
+    --border-color: #404040;
+    --shadow: rgba(255,255,255,0.05);
+    --accent: #b0b0b0;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+}
+body.light {
+    --bg-color: #f0f0f0;
+    --text-color: #404040;
+    --header-bg: #d0d0d0;
+    --section-bg: #e8e8e8;
+    --skill-bg: #c0c0c0;
+    --border-color: #b0b0b0;
+    --shadow: rgba(0,0,0,0.1);
+    --accent: #808080;
+}
+header {
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInUp 1s ease-out;
+}
+header > * {
+    position: relative;
+    z-index: 2;
+}
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--accent);
+    animation: typing 2.5s steps(17, end), blink-caret 0.75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid var(--accent);
+}
+header p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.8s forwards;
+}
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--skill-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#theme-toggle:hover {
+    background: var(--accent);
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: var(--accent);
+    }
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px;
+}
+.section {
+    background: var(--section-bg);
+    margin: 30px 0;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px var(--shadow);
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.section:nth-child(1) { animation-delay: 0.3s; }
+.section:nth-child(2) { animation-delay: 0.5s; }
+.section:nth-child(3) { animation-delay: 0.7s; }
+.section:nth-child(4) { animation-delay: 0.9s; }
+h1, h2 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+h2 {
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: 8px;
+}
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+}
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.skill {
+    background: var(--skill-bg);
+    padding: 12px 18px;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+.skill:hover {
+    background: var(--accent);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+.skill .material-icons, p .material-icons {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.project {
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px;
+    transition: transform 0.3s;
+}
+.project:hover {
+    transform: translateX(5px);
+}
+.project h3 {
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+.project a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.project a:hover {
+    color: #ff6b6b;
+}
+.languages {
+    margin: 15px 0;
+}
+.language-bar {
+    display: flex;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.language-segment {
+    height: 100%;
+}
+.language-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+.language-label {
+    font-weight: bold;
+}
+
+#readme-view {
+    padding: 20px 0;
+}
+#back-btn {
+    background: var(--skill-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+}
+#back-btn:hover {
+    background: var(--accent);
+}
+#readme-content {
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+#readme-content h1, #readme-content h2, #readme-content h3 {
+    color: var(--accent);
+    margin-top: 30px;
+}
+#readme-content code {
+    background: var(--section-bg);
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+#readme-content pre {
+    background: var(--section-bg);
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+#readme-content blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+    margin: 10px 0;
+}
+#readme-content a {
+    color: var(--accent);
+}
+footer {
+    background: var(--header-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 1.1s;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 40px 15px;
+        min-height: 60vh;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    header p {
+        font-size: 1rem;
+    }
+    .container {
+        padding: 10px;
+    }
+    .section {
+        padding: 20px;
+        margin: 20px 0;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    .skills {
+        gap: 10px;
+    }
+    .skill {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    .skill .material-icons, p .material-icons {
+        font-size: 16px;
+    }
+    .language-bar {
+        height: 6px;
+    }
+    .language-labels {
+        font-size: 0.8rem;
+        gap: 8px;
+    }
+    #readme-content {
+        padding: 10px;
+    }
+}
