@@ -4,6 +4,7 @@ import image from "@rollup/plugin-image";
 import html from "@rollup/plugin-html";
 import postcss from "rollup-plugin-postcss";
 import terser from "@rollup/plugin-terser";
+import alias from '@rollup/plugin-alias';
 import swc from "./src/swc.ts";
 
 export default {
@@ -16,6 +17,14 @@ export default {
     assetFileNames: "assets/[name]-[hash][extname]"
   },
   plugins: [
+    alias({
+      entries: [
+        { find: 'react-dom/test-utils', replacement: 'preact/test-utils' },
+        { find: 'react/jsx-runtime', replacement: 'preact/jsx-runtime' },
+        { find: 'react-dom', replacement: 'preact/compat' },
+        { find: 'react', replacement: 'preact/compat' },
+      ],
+    }),
     nodeResolve({
       browser: true
     }),
