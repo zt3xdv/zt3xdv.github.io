@@ -1,36 +1,28 @@
 {
-  "name": "frontend-base",
-  "version": "1.0.0",
-  "description": "A lightweight and fast frontend base built with Preact, TypeScript, and Rollup.",
-  "keywords": [
-    "base",
-    "preact",
-    "rollup",
-    "lightweight",
-    "no-bin"
-  ],
-  "license": "MIT",
-  "author": "zt3xdv",
+  "name": "zt3xdv-github-io",
+  "version": "0.1.0",
+  "private": true,
   "type": "module",
-  "main": "index.js",
+  "homepage": "https://zt3xdv.github.io",
   "scripts": {
-    "build": "NODE_ENV=production rollup -c",
-    "dev": "rollup -c -w"
+    "dev": "bun --hot src/index.ts",
+    "build": "bun build ./index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
+    "start": "NODE_ENV=production bun src/index.ts",
+    "typecheck": "bun check"
   },
   "dependencies": {
-    "preact": "^11.0.0",
-    "react-markdown": "^10.1.0"
+    "react": "^19",
+    "react-dom": "^19",
+    "react-markdown": "^10.1.0",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
-    "@rollup/plugin-alias": "^6.0.0",
-    "@rollup/plugin-commonjs": "^29.0.3",
-    "@rollup/plugin-html": "^2.0.0",
-    "@rollup/plugin-image": "^3.0.3",
-    "@rollup/plugin-node-resolve": "^16.0.3",
-    "@rollup/plugin-terser": "^1.0.0",
-    "@swc/core": "^1.16.13",
-    "rollup": "^4.64.0",
-    "rollup-plugin-postcss": "^4.0.2",
-    "typescript": "^7.0.2"
+    "@types/bun": "latest",
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
   }
 }

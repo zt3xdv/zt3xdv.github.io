@@ -1,36 +1,14 @@
-import { render } from "preact";
-import Hero from "./components/Hero.tsx";
-import Skills from "./components/Skills.tsx";
-import Projects from "./components/Projects.tsx";
-import Footer from "./components/Footer.tsx";
+import { StrictMode } from "react";
+import { createRoot, type Root } from "react-dom/client";
+import { ReadmeViewer } from "./ReadmeViewer";
 import "./styles.css";
 
-export default function App() {
-  return (
-    <>
-      <nav className="nav container">
-        <a className="brand">
-          zt3xdv
-        </a>
+const elem = document.getElementById("root")!;
+const app = (
+  <StrictMode>
+    <ReadmeViewer />
+  </StrictMode>
+);
 
-        <div className="nav-links">
-          <a href="#skills">Stack</a>
-          <a href="#projects">Projects</a>
-          <a className="nav-github" href="https://github.com/zt3xdv">
-            GitHub
-          </a>
-        </div>
-      </nav>
-
-      <main>
-        <Hero />
-        <Skills />
-        <Projects />
-      </main>
-
-      <Footer />
-    </>
-  );
-}
-
-render(<App />, document.getElementById("app")!);
+type HotData = { root?: Root };
+((import.meta.hot.data as HotData).root ??= createRoot(elem)).render(app);

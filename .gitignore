@@ -1,6 +1,4 @@
-# npm
 node_modules/
-package-lock.json
-
-# rollup
 dist/
+package-lock.json
+bun.lock

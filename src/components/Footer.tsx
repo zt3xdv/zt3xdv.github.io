@@ -1,13 +1,7 @@
-export default function Footer() {
+export function Footer() {
   return (
-    <footer className="footer container">
-      <p>Designed and built by me obviously</p>
-      <a href="#top" onClick={(event) => {
-        event.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }}>
-        Back to top? the page isn't that long..
-      </a>
+    <footer className="footer">
+      <p>made by zt3xdv with <span className="heart">corazon</span> • yeah i know that the background is a bit pixelated</p>
     </footer>
   );
 }
