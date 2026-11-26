@@ -1,4 +1,4 @@
-import type { GitHubProfile } from '../ReadmeViewer';
+import type { GitHubProfile } from '../App';
 
 export function ProfileSidebar({ profile }: { profile: GitHubProfile }) {
   return (

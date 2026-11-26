@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Spinner, ProfileSidebar, ReadmeContent, Footer } from './components';
 import { readmeUrl, githubApi, getCache, setCache } from './constants';
 
-interface GitHubProfile {
+export interface GitHubProfile {
   login: string;
   name: string | null;
   bio: string | null;
@@ -10,7 +10,7 @@ interface GitHubProfile {
   html_url: string;
 }
 
-export function ReadmeViewer() {
+export function App() {
   const [content, setContent] = useState<string>('');
   const [profile, setProfile] = useState<GitHubProfile | null>(null);
   const [loading, setLoading] = useState(true);

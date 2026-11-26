@@ -5,7 +5,6 @@ const server = serve({
   routes: {
     "/*": index
   },
-
   development: process.env.NODE_ENV !== "production" && {
     hmr: true,
     console: true,

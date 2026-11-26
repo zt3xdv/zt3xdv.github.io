@@ -1,12 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { ReadmeViewer } from "./ReadmeViewer";
+import { App } from "./App";
 import "./styles.css";
 
 const elem = document.getElementById("root")!;
 const app = (
   <StrictMode>
-    <ReadmeViewer />
+    <App />
   </StrictMode>
 );
 
