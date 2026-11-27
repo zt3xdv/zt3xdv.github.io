@@ -13,7 +13,6 @@ export function ReadmeContent({ content }: ReadmeContentProps) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}
-        // @ts-expect-error
         components={{ img: Image }}
       >
         {content}

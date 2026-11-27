@@ -1,7 +1,9 @@
 import { githubRawBase } from '../constants';
+import type { ImgHTMLAttributes } from 'react';
 
-export function Image({ src, alt, title }: { src: string; alt: string; title?: string }) {
-  const isRelative = !src.startsWith('http') && !src.startsWith('//');
+export function Image(props: ImgHTMLAttributes<HTMLImageElement>) {
+  const { src, alt, title, ...rest } = props;
+  const isRelative = !src?.startsWith('http') && !src?.startsWith('//');
   const fullSrc = isRelative ? `${githubRawBase}${src}` : src;
   return (
     <figure style={{ margin: '1.5rem 0', textAlign: 'left' }}>
@@ -15,6 +17,7 @@ export function Image({ src, alt, title }: { src: string; alt: string; title?: s
           borderRadius: '8px',
         }}
         loading="lazy"
+        {...rest}
       />
       {alt && (
         <figcaption style={{ marginTop: '0.5rem', color: 'var(--color-text-muted)', fontSize: '0.875rem' }}>
